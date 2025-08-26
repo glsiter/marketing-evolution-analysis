@@ -1,0 +1,1888 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>营销管理观念演进史 - 可口可乐百年案例深度解析</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .tab-btn {
+            transition: all 0.3s ease;
+        }
+        .tab-btn.active {
+            background-color: #4f46e5;
+            color: white;
+        }
+        .animated-icon {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .timeline-item {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideInUp 0.6s ease-out forwards;
+        }
+        .timeline-item:nth-child(2) { animation-delay: 0.2s; }
+        .timeline-item:nth-child(3) { animation-delay: 0.4s; }
+        .timeline-item:nth-child(4) { animation-delay: 0.6s; }
+        .timeline-item:nth-child(5) { animation-delay: 0.8s; }
+        .timeline-item:nth-child(6) { animation-delay: 1.0s; }
+        @keyframes slideInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hover-scale:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+        .progress-bar {
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            animation: progressMove 3s ease-in-out infinite;
+        }
+        @keyframes progressMove {
+            0%, 100% { transform: translateX(-100%); }
+            50% { transform: translateX(100%); }
+        }
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Header -->
+    <header class="gradient-bg text-white py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="mb-6">
+                    <span class="inline-flex items-center px-4 py-2 bg-white bg-opacity-20 rounded-full text-sm font-medium">
+                        <i class="fas fa-graduation-cap mr-2"></i>
+                        数字营销管理学习中心
+                    </span>
+                </div>
+                <h1 class="text-5xl font-bold mb-6">
+                    营销管理观念演进史
+                </h1>
+                <p class="text-xl text-blue-100 mb-8 leading-relaxed">
+                    以可口可乐公司为案例，深度解析营销观念从生产导向到社会营销导向的百年演变历程
+                </p>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm">
+                    <div class="flex flex-col items-center">
+                        <i class="fas fa-brain text-2xl mb-2 animated-icon"></i>
+                        <span>理论基础</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <i class="fas fa-video text-2xl mb-2 animated-icon"></i>
+                        <span>免费视频</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <i class="fas fa-file-alt text-2xl mb-2 animated-icon"></i>
+                        <span>前沿论文</span>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <i class="fas fa-university text-2xl mb-2 animated-icon"></i>
+                        <span>权威资源</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center space-x-8">
+                <button class="tab-btn px-6 py-4 font-medium border-b-2 border-transparent hover:border-indigo-500 active" onclick="showTab('evolution')">
+                    <i class="fas fa-timeline mr-2"></i>演进历程
+                </button>
+                <button class="tab-btn px-6 py-4 font-medium border-b-2 border-transparent hover:border-indigo-500" onclick="showTab('cases')">
+                    <i class="fas fa-lightbulb mr-2"></i>经典案例
+                </button>
+                <button class="tab-btn px-6 py-4 font-medium border-b-2 border-transparent hover:border-indigo-500" onclick="showTab('videos')">
+                    <i class="fas fa-play-circle mr-2"></i>视频资源
+                </button>
+                <button class="tab-btn px-6 py-4 font-medium border-b-2 border-transparent hover:border-indigo-500" onclick="showTab('analysis')">
+                    <i class="fas fa-chart-line mr-2"></i>深度分析
+                </button>
+                <button class="tab-btn px-6 py-4 font-medium border-b-2 border-transparent hover:border-indigo-500" onclick="showTab('insights')">
+                    <i class="fas fa-brain mr-2"></i>启示总结
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 py-12">
+        <!-- 演进历程 Tab -->
+        <div id="evolution" class="tab-content active">
+            <h2 class="text-3xl font-bold mb-8 gradient-text">营销管理观念演进历程</h2>
+            
+            <!-- 时间轴概览 -->
+            <div class="mb-12">
+                <div class="bg-white rounded-lg shadow-md p-8">
+                    <h3 class="text-2xl font-bold mb-6 text-center">可口可乐营销观念演进时间轴 (1886-2024)</h3>
+                    <div class="relative">
+                        <!-- 时间轴线 -->
+                        <div class="absolute left-1/2 transform -translate-x-1/2 w-1 bg-indigo-500 h-full"></div>
+                        
+                        <!-- 阶段1: 生产导向 -->
+                        <div class="relative mb-8 timeline-item">
+                            <div class="flex items-center justify-between">
+                                <div class="w-5/12">
+                                    <div class="bg-red-50 p-6 rounded-lg border-l-4 border-red-500 hover-scale">
+                                        <h4 class="font-bold text-lg text-red-700 mb-2">阶段1: 生产导向 (1886-1920)</h4>
+                                        <p class="text-sm text-gray-700">低成本大规模生产，70年不涨价（5美分）</p>
+                                    </div>
+                                </div>
+                                <div class="w-2/12 flex justify-center">
+                                    <div class="bg-red-500 rounded-full w-8 h-8 flex items-center justify-center floating">
+                                        <span class="text-white font-bold">1</span>
+                                    </div>
+                                </div>
+                                <div class="w-5/12"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- 阶段2: 产品导向 -->
+                        <div class="relative mb-8 timeline-item">
+                            <div class="flex items-center justify-between">
+                                <div class="w-5/12"></div>
+                                <div class="w-2/12 flex justify-center">
+                                    <div class="bg-orange-500 rounded-full w-8 h-8 flex items-center justify-center floating">
+                                        <span class="text-white font-bold">2</span>
+                                    </div>
+                                </div>
+                                <div class="w-5/12">
+                                    <div class="bg-orange-50 p-6 rounded-lg border-l-4 border-orange-500 hover-scale">
+                                        <h4 class="font-bold text-lg text-orange-700 mb-2">阶段2: 产品导向 (1920-1950)</h4>
+                                        <p class="text-sm text-gray-700">专注配方完善与品质保持，秘密配方传说</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 阶段3: 销售导向 -->
+                        <div class="relative mb-8 timeline-item">
+                            <div class="flex items-center justify-between">
+                                <div class="w-5/12">
+                                    <div class="bg-yellow-50 p-6 rounded-lg border-l-4 border-yellow-500 hover-scale">
+                                        <h4 class="font-bold text-lg text-yellow-700 mb-2">阶段3: 销售导向 (1950-1960)</h4>
+                                        <p class="text-sm text-gray-700">大力发展广告营销，体育营销起步</p>
+                                    </div>
+                                </div>
+                                <div class="w-2/12 flex justify-center">
+                                    <div class="bg-yellow-500 rounded-full w-8 h-8 flex items-center justify-center floating">
+                                        <span class="text-white font-bold">3</span>
+                                    </div>
+                                </div>
+                                <div class="w-5/12"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- 阶段4: 营销导向 -->
+                        <div class="relative mb-8 timeline-item">
+                            <div class="flex items-center justify-between">
+                                <div class="w-5/12"></div>
+                                <div class="w-2/12 flex justify-center">
+                                    <div class="bg-green-500 rounded-full w-8 h-8 flex items-center justify-center floating">
+                                        <span class="text-white font-bold">4</span>
+                                    </div>
+                                </div>
+                                <div class="w-5/12">
+                                    <div class="bg-green-50 p-6 rounded-lg border-l-4 border-green-500 hover-scale">
+                                        <h4 class="font-bold text-lg text-green-700 mb-2">阶段4: 营销导向 (1960-2000)</h4>
+                                        <p class="text-sm text-gray-700">3A/3P原则，中国市场进入策略</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 阶段5: 社会营销导向 -->
+                        <div class="relative timeline-item">
+                            <div class="flex items-center justify-between">
+                                <div class="w-5/12">
+                                    <div class="bg-purple-50 p-6 rounded-lg border-l-4 border-purple-500 hover-scale">
+                                        <h4 class="font-bold text-lg text-purple-700 mb-2">阶段5: 社会营销导向 (2000-至今)</h4>
+                                        <p class="text-sm text-gray-700">健康、环保理念，多元化产品组合</p>
+                                    </div>
+                                </div>
+                                <div class="w-2/12 flex justify-center">
+                                    <div class="bg-purple-500 rounded-full w-8 h-8 flex items-center justify-center floating">
+                                        <span class="text-white font-bold">5</span>
+                                    </div>
+                                </div>
+                                <div class="w-5/12"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 阶段1: 生产导向阶段 -->
+            <div class="card-hover bg-white rounded-lg shadow-md p-8 mb-8">
+                <div class="flex items-start">
+                    <div class="bg-red-100 rounded-full p-4 mr-6">
+                        <i class="fas fa-industry text-2xl text-red-600"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-4">阶段1: 生产导向阶段 (1886-1920年代)</h3>
+                        <p class="text-gray-600 mb-6">可口可乐初期以低成本大规模生产为核心，体现了典型的生产导向特征</p>
+                        
+                        <div class="grid md:grid-cols-2 gap-8 mb-6">
+                            <div>
+                                <h4 class="font-semibold mb-4 text-red-700">
+                                    <i class="fas fa-clock mr-2"></i>历史背景 (1886-1920年代)
+                                </h4>
+                                <div class="space-y-3 text-sm text-gray-700">
+                                    <div class="bg-red-50 p-3 rounded">
+                                        <strong>1886年</strong>: 约翰·彭伯顿博士在亚特兰大发明可口可乐
+                                    </div>
+                                    <div class="bg-red-50 p-3 rounded">
+                                        <strong>1886-1959</strong>: 持续70年不涨价，始终5美分
+                                    </div>
+                                    <div class="bg-red-50 p-3 rounded">
+                                        <strong>第一年</strong>: 仅售出400多瓶
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-4 text-red-700">
+                                    <i class="fas fa-chart-line mr-2"></i>生产导向特征
+                                </h4>
+                                <ul class="text-sm space-y-3 text-gray-700">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                        <span><strong>低成本策略</strong>: 专注于降低生产成本，提高生产效率</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                        <span><strong>价格稳定</strong>: 70年不涨价，绑架瓶装商禁止抬价</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                        <span><strong>市场需求旺盛</strong>: 供不应求，消费者喜欢低价产品</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                        <span><strong>分销网络</strong>: 专注扩大分销范围，提高可及性</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-red-50 p-6 rounded-lg">
+                            <h4 class="font-semibold mb-3 flex items-center text-red-700">
+                                <i class="fas fa-star mr-2 text-yellow-500"></i>
+                                阶段1成功关键因素
+                            </h4>
+                            <div class="grid md:grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <p class="text-red-700 mb-2"><strong>市场环境优势：</strong></p>
+                                    <ul class="space-y-1 text-gray-700">
+                                        <li>• 工业化初期，市场需求旺盛</li>
+                                        <li>• 竞争者少，可口可乐为先驱</li>
+                                        <li>• 消费者对价格敏感度高</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="text-red-700 mb-2"><strong>战略执行优势：</strong></p>
+                                    <ul class="space-y-1 text-gray-700">
+                                        <li>• 规模经济实现成本优势</li>
+                                        <li>• 稳定定价策略建立信任</li>
+                                        <li>• 分销网络快速扩张</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Consumer Behavior -->
+            <div class="card-hover bg-white rounded-lg shadow-md p-8 mb-8">
+                <div class="flex items-start">
+                    <div class="bg-green-100 rounded-full p-4 mr-6">
+                        <i class="fas fa-brain text-2xl text-green-600"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-4">消费者行为与决策心理学</h3>
+                        <p class="text-gray-600 mb-6">深入理解消费者认知过程和购买决策机制，提升营销效果</p>
+                        
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <h4 class="font-semibold mb-3 text-indigo-700">
+                                    <i class="fas fa-cogs mr-2"></i>决策过程模型
+                                </h4>
+                                <div class="space-y-3">
+                                    <div class="flex items-center bg-blue-50 p-3 rounded">
+                                        <span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3">1</span>
+                                        <span>问题识别</span>
+                                    </div>
+                                    <div class="flex items-center bg-blue-50 p-3 rounded">
+                                        <span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3">2</span>
+                                        <span>信息搜索</span>
+                                    </div>
+                                    <div class="flex items-center bg-blue-50 p-3 rounded">
+                                        <span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3">3</span>
+                                        <span>方案评估</span>
+                                    </div>
+                                    <div class="flex items-center bg-blue-50 p-3 rounded">
+                                        <span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3">4</span>
+                                        <span>购买决策</span>
+                                    </div>
+                                    <div class="flex items-center bg-blue-50 p-3 rounded">
+                                        <span class="bg-blue-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm mr-3">5</span>
+                                        <span>后购评价</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-3 text-red-700">
+                                    <i class="fas fa-head-side-brain mr-2"></i>认知偏差影响
+                                </h4>
+                                <ul class="text-sm space-y-2 text-gray-700">
+                                    <li>• <strong>锚定效应</strong>：首次信息对决策的影响</li>
+                                    <li>• <strong>损失厌恶</strong>：对损失的敏感度高于收益</li>
+                                    <li>• <strong>社会认同</strong>：从众心理和口碑影响</li>
+                                    <li>• <strong>稀缺性原理</strong>：限量增加感知价值</li>
+                                    <li>• <strong>框架效应</strong>：信息呈现方式的影响</li>
+                                    <li>• <strong>确认偏误</strong>：寻找支持既有观点的信息</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-yellow-50 p-4 rounded-lg">
+                            <h4 class="font-semibold mb-2 flex items-center">
+                                <i class="fas fa-store mr-2 text-orange-500"></i>
+                                实战应用：Amazon个性化推荐系统
+                            </h4>
+                            <p class="text-gray-700 text-sm">
+                                Amazon利用协同过滤、内容分析和深度学习算法，分析用户浏览历史、购买记录和评价数据，
+                                实现精准的个性化推荐，显著提升转化率和客户忠诚度。推荐算法贡献了约35%的销售收入。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 阶段2: 产品导向阶段 -->
+            <div class="card-hover bg-white rounded-lg shadow-md p-8 mb-8">
+                <div class="flex items-start">
+                    <div class="bg-orange-100 rounded-full p-4 mr-6">
+                        <i class="fas fa-cogs text-2xl text-orange-600"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-4">阶段2: 产品导向阶段 (1920-1950年代)</h3>
+                        <p class="text-gray-600 mb-6">可口可乐在这一时期专注于配方完善和品质保持，始终坚持其独特的“秘密配方”</p>
+                        
+                        <div class="grid md:grid-cols-2 gap-8 mb-6">
+                            <div>
+                                <h4 class="font-semibold mb-4 text-orange-700">
+                                    <i class="fas fa-flask mr-2"></i>产品导向特征
+                                </h4>
+                                <div class="space-y-3 text-sm text-gray-700">
+                                    <div class="bg-orange-50 p-3 rounded">
+                                        <strong>产品完美主义</strong>: 企业致力于生产优质产品，不断精益求精
+                                    </div>
+                                    <div class="bg-orange-50 p-3 rounded">
+                                        <strong>技术驱动</strong>: 注重产品功能和技术性能的提升
+                                    </div>
+                                    <div class="bg-orange-50 p-3 rounded">
+                                        <strong>内部导向</strong>: 以产品为中心，缺乏市场意识
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-4 text-orange-700">
+                                    <i class="fas fa-magic mr-2"></i>可口可乐的产品创新
+                                </h4>
+                                <ul class="text-sm space-y-3 text-gray-700">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                        <span><strong>秘密配方</strong>: 坚持独特配方，创建产品神秘感</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                        <span><strong>品质标准化</strong>: 全球统一的口感和质量标准</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                        <span><strong>包装设计</strong>: 经典曲线瓶型成为标志</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                        <span><strong>用户体验</strong>: 注重口感和饮用体验的优化</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-orange-50 p-6 rounded-lg">
+                            <h4 class="font-semibold mb-3 flex items-center text-orange-700">
+                                <i class="fas fa-exclamation-triangle mr-2 text-red-500"></i>
+                                产品导向的限制性
+                            </h4>
+                            <div class="grid md:grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <p class="text-orange-700 mb-2"><strong>市场风险：</strong></p>
+                                    <ul class="space-y-1 text-gray-700">
+                                        <li>• 忽略消费者真实需求</li>
+                                        <li>• 过度依赖产品功能升级</li>
+                                        <li>• 竞争者模仿难以防范</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="text-orange-700 mb-2"><strong>教训启示：</strong></p>
+                                    <ul class="space-y-1 text-gray-700">
+                                        <li>• 好产品不等于消费者最需要的</li>
+                                        <li>• 必须平衡产品质量与市场需求</li>
+                                        <li>• 需要加强市场研究和用户反馈</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 阶段3: 销售导向阶段 -->
+            <div class="card-hover bg-white rounded-lg shadow-md p-8 mb-8">
+                <div class="flex items-start">
+                    <div class="bg-yellow-100 rounded-full p-4 mr-6">
+                        <i class="fas fa-bullhorn text-2xl text-yellow-600"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-4">阶段3: 销售导向阶段 (1950-1960年代)</h3>
+                        <p class="text-gray-600 mb-6">二次大战后，市场供过于求，可口可乐开始重视推销工作，特别是体育营销</p>
+                        
+                        <div class="grid md:grid-cols-2 gap-8 mb-6">
+                            <div>
+                                <h4 class="font-semibold mb-4 text-yellow-700">
+                                    <i class="fas fa-tv mr-2"></i>销售导向特征
+                                </h4>
+                                <div class="space-y-3 text-sm text-gray-700">
+                                    <div class="bg-yellow-50 p-3 rounded">
+                                        <strong>推销为王</strong>: 大力进行广告宣传和推销活动
+                                    </div>
+                                    <div class="bg-yellow-50 p-3 rounded">
+                                        <strong>销售组织</strong>: 组建专业的推销组织和团队
+                                    </div>
+                                    <div class="bg-yellow-50 p-3 rounded">
+                                        <strong>市场竞争</strong>: 面对激烈竞争，以销为生
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-4 text-yellow-700">
+                                    <i class="fas fa-trophy mr-2"></i>体育营销的起步
+                                </h4>
+                                <ul class="text-sm space-y-3 text-gray-700">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                        <span><strong>奈斯比赛车</strong>: 赞助NASCAR赛车，开启体育营销</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                        <span><strong>电视广告</strong>: 在电视黄金时间投放广告</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                        <span><strong>明星代言</strong>: 邀请知名明星代言产品</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                        <span><strong>主题广告</strong>: "Things Go Better with Coke"等口号</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-yellow-50 p-6 rounded-lg">
+                            <h4 class="font-semibold mb-3 flex items-center text-yellow-700">
+                                <i class="fas fa-chart-bar mr-2 text-blue-500"></i>
+                                阶段3的成果与问题
+                            </h4>
+                            <div class="grid md:grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <p class="text-yellow-700 mb-2"><strong>积极成果：</strong></p>
+                                    <ul class="space-y-1 text-gray-700">
+                                        <li>• 品牌知名度大幅提升</li>
+                                        <li>• 市场份额快速增长</li>
+                                        <li>• 体育营销模式的先驱</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="text-yellow-700 mb-2"><strong>潜在问题：</strong></p>
+                                    <ul class="space-y-1 text-gray-700">
+                                        <li>• 过度依赖推销手段</li>
+                                        <li>• 忽略消费者真实需求</li>
+                                        <li>• 缺乏长期客户关系管理</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 阶段4: 营销导向阶段 -->
+            <div class="card-hover bg-white rounded-lg shadow-md p-8 mb-8">
+                <div class="flex items-start">
+                    <div class="bg-green-100 rounded-full p-4 mr-6">
+                        <i class="fas fa-users text-2xl text-green-600"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-4">阶段4: 营销导向阶段 (1960-2000年代)</h3>
+                        <p class="text-gray-600 mb-6">可口可乐转向以客户为中心的营销理念，提出3A和3P原则，并成功进入中国市场</p>
+                        
+                        <div class="grid md:grid-cols-2 gap-8 mb-6">
+                            <div>
+                                <h4 class="font-semibold mb-4 text-green-700">
+                                    <i class="fas fa-target mr-2"></i>3A原则 (1960-1995)
+                                </h4>
+                                <div class="space-y-3 text-sm text-gray-700">
+                                    <div class="bg-green-50 p-4 rounded border-l-4 border-green-500">
+                                        <strong class="text-green-700">Availability</strong> - 买得到<br>
+                                        <span class="text-gray-600">无处不在，随时随地可以买到可口可乐</span>
+                                    </div>
+                                    <div class="bg-green-50 p-4 rounded border-l-4 border-green-500">
+                                        <strong class="text-green-700">Affordability</strong> - 买得起<br>
+                                        <span class="text-gray-600">价格合理，人人都能消费得起</span>
+                                    </div>
+                                    <div class="bg-green-50 p-4 rounded border-l-4 border-green-500">
+                                        <strong class="text-green-700">Acceptability</strong> - 乐意买<br>
+                                        <span class="text-gray-600">品牌形象和产品体验让消费者乐于接受</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-4 text-green-700">
+                                    <i class="fas fa-chart-line mr-2"></i>3P原则 (1995-2000)
+                                </h4>
+                                <div class="space-y-3 text-sm text-gray-700">
+                                    <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-500">
+                                        <strong class="text-blue-700">Pervasiveness</strong> - 无处不在<br>
+                                        <span class="text-gray-600">比3A中的Availability更加积极主动</span>
+                                    </div>
+                                    <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-500">
+                                        <strong class="text-blue-700">Price-to-Value</strong> - 物有所值<br>
+                                        <span class="text-gray-600">不仅仅是价格低，而是价值比高</span>
+                                    </div>
+                                    <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-500">
+                                        <strong class="text-blue-700">Preference</strong> - 首选品牌<br>
+                                        <span class="text-gray-600">成为消费者的首选品牌</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-green-50 p-6 rounded-lg mb-6">
+                            <h4 class="font-semibold mb-3 text-green-700">
+                                <i class="fas fa-globe-asia mr-2"></i>中国市场进入策略
+                            </h4>
+                            <div class="grid md:grid-cols-3 gap-4 text-sm">
+                                <div>
+                                    <p class="text-green-700 mb-2"><strong>1979年</u8fdb入：</strong></p>
+                                    <ul class="space-y-1 text-gray-700">
+                                        <li>• 作为高档品仅销售给外宾</li>
+                                        <li>• 采取寄售方式进入中国</li>
+                                        <li>• 递进式本土化策略</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="text-green-700 mb-2"><strong>本土化策略：</strong></p>
+                                    <ul class="space-y-1 text-gray-700">
+                                        <li>• 建立本土化生产基地</li>
+                                        <li>• 与当地企业合作建厂</li>
+                                        <li>• 适应中国消费者口味</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="text-green-700 mb-2"><strong>成功关键：</strong></p>
+                                    <ul class="space-y-1 text-gray-700">
+                                        <li>• 坚持全球统一品质标准</li>
+                                        <li>• 灵活的市场进入策略</li>
+                                        <li>• 长期承诺和投入</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 阶段5: 社会营销导向阶段 -->
+            <div class="card-hover bg-white rounded-lg shadow-md p-8 mb-8">
+                <div class="flex items-start">
+                    <div class="bg-purple-100 rounded-full p-4 mr-6">
+                        <i class="fas fa-heart text-2xl text-purple-600"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-4">阶段5: 社会营销导向阶段 (2000年代-至今)</h3>
+                        <p class="text-gray-600 mb-6">可口可乐开始关注消费者、企业和社会的长期利益，推出多元化产品组合，关注健康和环保</p>
+                        
+                        <div class="grid md:grid-cols-2 gap-8 mb-6">
+                            <div>
+                                <h4 class="font-semibold mb-4 text-purple-700">
+                                    <i class="fas fa-leaf mr-2"></i>社会营销导向特征
+                                </h4>
+                                <div class="space-y-3 text-sm text-gray-700">
+                                    <div class="bg-purple-50 p-3 rounded">
+                                        <strong>健康意识</strong>: 关注产品对消费者健康的影响
+                                    </div>
+                                    <div class="bg-purple-50 p-3 rounded">
+                                        <strong>环保理念</strong>: 推进可持续发展和环保包装
+                                    </div>
+                                    <div class="bg-purple-50 p-3 rounded">
+                                        <strong>社会责任</strong>: 平衡企业利润与社会责任
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-4 text-purple-700">
+                                    <i class="fas fa-water mr-2"></i>产品组合多元化
+                                </h4>
+                                <ul class="text-sm space-y-3 text-gray-700">
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                        <span><strong>非碳酸饮料</strong>: 1996年开始涩足茶饮料、果汁和矿物水</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                        <span><strong>中国本土品牌</strong>: "水活"瓶装水、"酷儿"果汁、"阳光"系列茶</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                        <span><strong>健康产品</strong>: 低糖、无糖可口可乐系列产品</span>
+                                    </li>
+                                    <li class="flex items-start">
+                                        <i class="fas fa-check text-green-500 mr-2 mt-1"></i>
+                                        <span><strong>功能性饮料</strong>: 运动饮料、能量饮料等</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-purple-50 p-6 rounded-lg mb-6">
+                            <h4 class="font-semibold mb-3 text-purple-700">
+                                <i class="fas fa-mobile-alt mr-2"></i>数字化转型与创新营销
+                            </h4>
+                            <div class="grid md:grid-cols-3 gap-4 text-sm">
+                                <div>
+                                    <p class="text-purple-700 mb-2"><strong>个性化营销：</strong></p>
+                                    <ul class="space-y-1 text-gray-700">
+                                        <li>• 2013年"Share a Coke"活动</li>
+                                        <li>• 瓶身上增加歌词和名字</li>
+                                        <li>• 成为沟通桥梁和纽带</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="text-purple-700 mb-2"><strong>数字化会员：</strong></p>
+                                    <ul class="space-y-1 text-gray-700">
+                                        <li>• 2019年启动DTC数字化转型</li>
+                                        <li>• 瓶盖扫码营销活动</li>
+                                        <li>• "每天有乐"会员超1000多万</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="text-purple-700 mb-2"><strong>全链路数智化：</strong></p>
+                                    <ul class="space-y-1 text-gray-700">
+                                        <li>• 生产、供应链数字化</li>
+                                        <li>• 物流、营销智能化</li>
+                                        <li>• 会员体系全面升级</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-6 rounded-lg">
+                            <h4 class="font-semibold mb-3 text-purple-700">
+                                <i class="fas fa-lightbulb mr-2 text-yellow-500"></i>
+                                社会营销导向的价值与挑战
+                            </h4>
+                            <div class="grid md:grid-cols-2 gap-4 text-sm">
+                                <div>
+                                    <p class="text-purple-700 mb-2"><strong>核心价值：</strong></p>
+                                    <ul class="space-y-1 text-gray-700">
+                                        <li>• 平衡消费者、企业和社会利益</li>
+                                        <li>• 可持续发展和长期价值创造</li>
+                                        <li>• 積極承担企业社会责任</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                    <p class="text-purple-700 mb-2"><strong>面临挑战：</strong></p>
+                                    <ul class="space-y-1 text-gray-700">
+                                        <li>• 健康意识提升对碳酸饮料的冲击</li>
+                                        <li>• 环保法规日趋严格</li>
+                                        <li>• 需要不断创新和转型</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Digital Marketing Mix -->
+            <div class="card-hover bg-white rounded-lg shadow-md p-8 mb-8">
+                <div class="flex items-start">
+                    <div class="bg-purple-100 rounded-full p-4 mr-6">
+                        <i class="fas fa-th-large text-2xl text-purple-600"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-4">数字化营销组合策略 (7P模型)</h3>
+                        <p class="text-gray-600 mb-6">传统4P模型在数字时代的拓展应用，适应服务经济特征</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-6">
+                            <div class="bg-red-50 p-4 rounded-lg border-l-4 border-red-500">
+                                <h4 class="font-semibold mb-2 text-red-700">Product (产品)</h4>
+                                <ul class="text-xs space-y-1 text-gray-700">
+                                    <li>• 产品生命周期管理</li>
+                                    <li>• 产品线扩展策略</li>
+                                    <li>• 创新与差异化</li>
+                                    <li>• 品牌组合管理</li>
+                                </ul>
+                            </div>
+                            <div class="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+                                <h4 class="font-semibold mb-2 text-green-700">Price (价格)</h4>
+                                <ul class="text-xs space-y-1 text-gray-700">
+                                    <li>• 动态定价策略</li>
+                                    <li>• 心理定价技术</li>
+                                    <li>• 订阅模式设计</li>
+                                    <li>• 价格弹性分析</li>
+                                </ul>
+                            </div>
+                            <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+                                <h4 class="font-semibold mb-2 text-blue-700">Place (渠道)</h4>
+                                <ul class="text-xs space-y-1 text-gray-700">
+                                    <li>• 全渠道零售</li>
+                                    <li>• 电商平台策略</li>
+                                    <li>• 供应链优化</li>
+                                    <li>• 物流配送体系</li>
+                                </ul>
+                            </div>
+                            <div class="bg-yellow-50 p-4 rounded-lg border-l-4 border-yellow-500">
+                                <h4 class="font-semibold mb-2 text-yellow-700">Promotion (推广)</h4>
+                                <ul class="text-xs space-y-1 text-gray-700">
+                                    <li>• 整合营销传播</li>
+                                    <li>• 内容营销策略</li>
+                                    <li>• 社交媒体营销</li>
+                                    <li>• 影响者合作</li>
+                                </ul>
+                            </div>
+                            <div class="bg-purple-50 p-4 rounded-lg border-l-4 border-purple-500">
+                                <h4 class="font-semibold mb-2 text-purple-700">People (人员)</h4>
+                                <ul class="text-xs space-y-1 text-gray-700">
+                                    <li>• 客户关系管理</li>
+                                    <li>• 服务体验设计</li>
+                                    <li>• 员工培训体系</li>
+                                    <li>• 文化建设</li>
+                                </ul>
+                            </div>
+                            <div class="bg-indigo-50 p-4 rounded-lg border-l-4 border-indigo-500">
+                                <h4 class="font-semibold mb-2 text-indigo-700">Process (过程)</h4>
+                                <ul class="text-xs space-y-1 text-gray-700">
+                                    <li>• 营销自动化</li>
+                                    <li>• 流程标准化</li>
+                                    <li>• 质量控制</li>
+                                    <li>• 持续改进</li>
+                                </ul>
+                            </div>
+                            <div class="bg-pink-50 p-4 rounded-lg border-l-4 border-pink-500">
+                                <h4 class="font-semibold mb-2 text-pink-700">Physical Evidence (环境)</h4>
+                                <ul class="text-xs space-y-1 text-gray-700">
+                                    <li>• 品牌视觉识别</li>
+                                    <li>• 数字化体验</li>
+                                    <li>• 环境设计</li>
+                                    <li>• 包装设计</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Marketing Frameworks -->
+            <div class="card-hover bg-white rounded-lg shadow-md p-8 mb-8">
+                <div class="flex items-start">
+                    <div class="bg-orange-100 rounded-full p-4 mr-6">
+                        <i class="fas fa-chart-line text-2xl text-orange-600"></i>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold mb-4">关键营销分析框架</h3>
+                        
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <!-- AIDA Model -->
+                            <div class="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-lg">
+                                <h4 class="font-semibold mb-4 text-blue-800">
+                                    <i class="fas fa-funnel-dollar mr-2"></i>AIDA漏斗模型
+                                </h4>
+                                <div class="space-y-3">
+                                    <div class="flex items-center">
+                                        <span class="bg-blue-600 text-white px-3 py-1 rounded text-sm font-medium mr-3">A</span>
+                                        <span class="text-sm">Attention - 吸引注意</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <span class="bg-blue-600 text-white px-3 py-1 rounded text-sm font-medium mr-3">I</span>
+                                        <span class="text-sm">Interest - 激发兴趣</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <span class="bg-blue-600 text-white px-3 py-1 rounded text-sm font-medium mr-3">D</span>
+                                        <span class="text-sm">Desire - 产生欲望</span>
+                                    </div>
+                                    <div class="flex items-center">
+                                        <span class="bg-blue-600 text-white px-3 py-1 rounded text-sm font-medium mr-3">A</span>
+                                        <span class="text-sm">Action - 采取行动</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- AARRR Model -->
+                            <div class="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-lg">
+                                <h4 class="font-semibold mb-4 text-green-800">
+                                    <i class="fas fa-rocket mr-2"></i>AARRR增长模型
+                                </h4>
+                                <div class="space-y-2 text-sm">
+                                    <div><strong>Acquisition</strong> - 获客：SEO、SEM、社交媒体</div>
+                                    <div><strong>Activation</strong> - 激活：用户注册、首次使用</div>
+                                    <div><strong>Retention</strong> - 留存：用户活跃度、重复使用</div>
+                                    <div><strong>Referral</strong> - 推荐：口碑营销、病毒传播</div>
+                                    <div><strong>Revenue</strong> - 收入：变现模式、价值提升</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 经典案例 Tab -->
+        <div id="cases" class="tab-content">
+            <h2 class="text-3xl font-bold mb-8 gradient-text">可口可乐经典营销案例</h2>
+            
+            <!-- Share a Coke 活动 -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4 text-indigo-700 border-l-4 border-indigo-500 pl-4">个性化营销先驱 - Share a Coke 活动 (2011-至今)</h3>
+                <div class="grid gap-6">
+                    <div class="card-hover bg-white rounded-lg shadow-md p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="font-semibold text-lg text-gray-800">Share a Coke - 个性化营销的里程碑</h4>
+                            <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded">2011-至今</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">策划机构：Ogilvy & Mather | 数据：超过150个国家参与，创造了2.35亿美元销售增长</p>
+                        <p class="text-gray-700 mb-4">
+                            可口可乐在产品包装上印刷个人名字，创造个性化体验。这个活动不仅提升了销售额，更重要的是重新激活了品牌与消费者的情感连接。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-2">
+                                <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">个性化</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">情感连接</span>
+                                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">社交媒体</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=stT6W1WfGjQ" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">
+                                <i class="fas fa-play mr-1"></i>观看案例视频
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card-hover bg-white rounded-lg shadow-md p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="font-semibold text-lg text-gray-800">Open Happiness - 情感营销的经典案例</h4>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">2009-2016</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">策划机构：Wieden+Kennedy | 效果：全球品牌好感度提升3.2%，销售增长2.1%</p>
+                        <p class="text-gray-700 mb-4">
+                            “Open Happiness”活动将可口可乐与快乐、分享和积极的生活方式联系起来，通过情感化的广告内容和体验营销，成功提升了品牌形象。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-2">
+                                <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded">情感营销</span>
+                                <span class="bg-pink-100 text-pink-800 text-xs px-2 py-1 rounded">品牌形象</span>
+                                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">全球活动</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=ib-Qiyklq-Q" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">
+                                <i class="fas fa-play mr-1"></i>观看案例视频
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Holidays are Coming 活动 -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4 text-green-700 border-l-4 border-green-500 pl-4">节日营销经典 - Holidays are Coming (1995-至今)</h3>
+                <div class="grid gap-6">
+                    <div class="card-hover bg-white rounded-lg shadow-md p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="font-semibold text-lg text-gray-800">圣诞卡车广告 - 节日营销的金字招牌</h4>
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">1995-至今</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">创意机构：McCann Erickson | 数据：每年超过30个国家播放，观看量超过10亿人次</p>
+                        <p class="text-gray-700 mb-4">
+                            可口可乐红色大卡车在彭灯闪烁中穿行，伴随着“Holidays are Coming”的旋律，已成为全球圣诞节的标志性符号。这个广告成功地将可口可乐与圣诞节的快乐和团聚联系起来。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-2">
+                                <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">节日营销</span>
+                                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">情感连接</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">传统广告</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=NUT07FKkES0" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">
+                                <i class="fas fa-play mr-1"></i>观看经典广告
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card-hover bg-white rounded-lg shadow-md p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="font-semibold text-lg text-gray-800">中国市场本土化 - 可口可乐的成功转型</h4>
+                            <span class="bg-green-100 text-green-800 text-xs font-medium px-2.5 py-0.5 rounded">1979-至今</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">战略执行：太古可口可乐 | 成果：成为中国最受欢迎的国际饮料品牌之一</p>
+                        <p class="text-gray-700 mb-4">
+                            从1979年以寄售方式进入中国，到建立本土化生产基地、推出符合中国人口味的产品组合，可口可乐在中国市场的成功体现了“全球化思考，本土化行动”的精髓。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-2">
+                                <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">本土化</span>
+                                <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded">市场进入</span>
+                                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">文化适应</span>
+                            </div>
+                            <a href="https://www.bilibili.com/video/BV1234567890" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">
+                                <i class="fas fa-play mr-1"></i>观看案例视频
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 体育营销经典案例 -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-4 text-red-700 border-l-4 border-red-500 pl-4">体育营销先驱 - 可口可乐与奥运会 (1928-至今)</h3>
+                <div class="grid gap-6">
+                    <div class="card-hover bg-white rounded-lg shadow-md p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="font-semibold text-lg text-gray-800">奥运会赞助 - 体育营销的鼠祖</h4>
+                            <span class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded">1928-至今</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">赞助历史：从1928年阿姆斯特丹奥运会开始，成为最长的奥运会赞助商之一</p>
+                        <p class="text-gray-700 mb-4">
+                            可口可乐是世界上最早进入体育营销领域的品牌之一。通过赞助奥运会、世界杯、NBA等顶级体育赛事，成功地将品牌与运动精神、胜利和快乐联系在一起。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-2">
+                                <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded">体育营销</span>
+                                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">全球赞助</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">品牌联想</span>
+                            </div>
+                            <a href="https://www.youtube.com/watch?v=Olympics_Coke" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">
+                                <i class="fas fa-play mr-1"></i>观看体育营销集锦
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="card-hover bg-white rounded-lg shadow-md p-6">
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="font-semibold text-lg text-gray-800">数字化营销创新 - 瓶盖扫码与AR体验</h4>
+                            <span class="bg-blue-100 text-blue-800 text-xs font-medium px-2.5 py-0.5 rounded">2019-至今</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">技术支持：太古可口可乐DTC数字化平台 | 效果：会员数量从100万增长到1000多万</p>
+                        <p class="text-gray-700 mb-4">
+                            通过瓶盖扫码技术的创新应用，可口可乐实现了从生产、供应链、物流、营销到会员体系的全链路数智化。通过AR体验、个性化推荐等创新手段，成功提升了用户参与度和品牌忠诚度。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div class="flex space-x-2">
+                                <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">数字化</span>
+                                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">AR体验</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">全链路</span>
+                            </div>
+                            <a href="https://www.bilibili.com/video/BV1AR4y1K7sD" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm font-medium">
+                                <i class="fas fa-play mr-1"></i>观看数字化案例
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-red-50 to-blue-50 border-l-4 border-red-500 p-6 rounded-lg">
+                <h3 class="font-semibold mb-3 text-red-800">
+                    <i class="fas fa-lightbulb mr-2"></i>可口可乐营销成功的关键启示
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6 text-sm">
+                    <div>
+                        <h4 class="font-medium mb-2 text-red-700">营销创新理念</h4>
+                        <ul class="space-y-1 text-red-600">
+                            <li>• <strong>情感连接</strong>: 超越产品功能，打造情感纽带</li>
+                            <li>• <strong>个性化体验</strong>: 从大众化向定制化转变</li>
+                            <li>• <strong>数字化转型</strong>: 拥抱新技术，创新体验方式</li>
+                            <li>• <strong>社会价值</strong>: 平衡商业利益与社会责任</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-medium mb-2 text-blue-700">执行策略要素</h4>
+                        <ul class="space-y-1 text-blue-600">
+                            <li>• <strong>一致性</strong>: 全球统一的品牌形象和价值主张</li>
+                            <li>• <strong>本土化</strong>: 适应当地文化和消费习惯</li>
+                            <li>• <strong>长期主义</strong>: 坚持品牌建设与用户关系</li>
+                            <li>• <strong>持续创新</strong>: 不断适应市场变化和消费者需求</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 视频资源 Tab -->
+        <div id="videos" class="tab-content">
+            <h2 class="text-3xl font-bold mb-8 gradient-text">可口可乐营销视频资源</h2>
+            
+            <!-- 经典广告集锦 -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-6 text-red-600 border-l-4 border-red-500 pl-4">
+                    <i class="fas fa-play-circle mr-2"></i>可口可乐经典广告集锦
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="card-hover bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-start mb-4">
+                            <div class="bg-red-100 rounded-full p-3 mr-4">
+                                <i class="fas fa-play-circle text-red-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg">Holidays Are Coming</h4>
+                                <p class="text-gray-600 text-sm">可口可乐经典圣诞广告</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 text-sm mb-4">
+                            1995年首播的经典圣诞广告，可口可乐卡车穿越雪夜，成为全球圣诞节的标志性符号。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="bg-red-100 text-red-800 text-xs px-3 py-1 rounded-full">播放 5000万+</span>
+                            <a href="https://www.youtube.com/watch?v=NUT07FKkES0" target="_blank" class="text-red-600 hover:text-red-800 font-medium">
+                                <i class="fas fa-play mr-1"></i>观看视频
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card-hover bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-start mb-4">
+                            <div class="bg-blue-100 rounded-full p-3 mr-4">
+                                <i class="fas fa-heart text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg">Open Happiness</h4>
+                                <p class="text-gray-600 text-sm">情感连接的营销活动</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 text-sm mb-4">
+                            2009-2016年的全球营销主题，强调快乐与分享，成功地将可口可乐与积极生活方式联系起来。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">播放 2000万+</span>
+                            <a href="https://www.youtube.com/watch?v=ib-Qiyklq-Q" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium">
+                                <i class="fas fa-play mr-1"></i>观看视频
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card-hover bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-start mb-4">
+                            <div class="bg-green-100 rounded-full p-3 mr-4">
+                                <i class="fas fa-users text-green-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg">Share a Coke</h4>
+                                <p class="text-gray-600 text-sm">个性化营销的里程碑</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 text-sm mb-4">
+                            2011年在澳大利亚首发的个性化营销活动，在可口可乐包装上印上个人名字，全球150多国参与。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">播放 8000万+</span>
+                            <a href="https://www.youtube.com/watch?v=stT6W1WfGjQ" target="_blank" class="text-green-600 hover:text-green-800 font-medium">
+                                <i class="fas fa-play mr-1"></i>观看视频
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card-hover bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-start mb-4">
+                            <div class="bg-purple-100 rounded-full p-3 mr-4">
+                                <i class="fas fa-mobile-alt text-purple-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg">数字化营销创新</h4>
+                                <p class="text-gray-600 text-sm">AR体验与瓶盖扫码</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 text-sm mb-4">
+                            可口可乐在中国市场的数字化创新实践，包括瓶盖扫码、AR体验和会员系统的整合应用。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="bg-purple-100 text-purple-800 text-xs px-3 py-1 rounded-full">播放 1200万+</span>
+                            <a href="https://www.bilibili.com/video/BV1AR4y1K7sD" target="_blank" class="text-purple-600 hover:text-purple-800 font-medium">
+                                <i class="fas fa-play mr-1"></i>观看视频
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Coursera免费课程 -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-6 text-blue-600 border-l-4 border-blue-500 pl-4">
+                    <i class="fas fa-graduation-cap mr-2"></i>Coursera 免费营销课程
+                </h3>
+                <div class="space-y-4">
+                    <div class="card-hover bg-white rounded-lg shadow-md p-6">
+                        <div class="flex justify-between items-start">
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-lg mb-2">Introduction to Marketing (Wharton)</h4>
+                                <p class="text-gray-600 text-sm mb-3">宾夕法尼亚大学沃顿商学院</p>
+                                <p class="text-gray-700 mb-4">
+                                    由沃顿商学院教授主讲，涵盖营销基础理论、品牌定位、客户价值等核心概念。
+                                </p>
+                                <div class="flex space-x-2 mb-4">
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">免费旁听</span>
+                                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">中文字幕</span>
+                                    <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">4.6评分</span>
+                                </div>
+                            </div>
+                            <a href="https://www.coursera.org/learn/wharton-marketing" target="_blank" class="ml-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                                <i class="fas fa-play mr-2"></i>开始学习
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="card-hover bg-white rounded-lg shadow-md p-6">
+                        <div class="flex justify-between items-start">
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-lg mb-2">Digital Marketing (University of Illinois)</h4>
+                                <p class="text-gray-600 text-sm mb-3">伊利诺伊大学</p>
+                                <p class="text-gray-700 mb-4">
+                                    完整的数字营销专项课程，包括数字营销分析、搜索引擎优化、社交媒体营销等。
+                                </p>
+                                <div class="flex space-x-2 mb-4">
+                                    <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">专项课程</span>
+                                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">免费旁听</span>
+                                    <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">4.5评分</span>
+                                </div>
+                            </div>
+                            <a href="https://www.coursera.org/specializations/digital-marketing" target="_blank" class="ml-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                                <i class="fas fa-play mr-2"></i>开始学习
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- edX免费课程 -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-6 text-indigo-600 border-l-4 border-indigo-500 pl-4">
+                    <i class="fas fa-certificate mr-2"></i>edX 免费营销课程
+                </h3>
+                <div class="space-y-4">
+                    <div class="card-hover bg-white rounded-lg shadow-md p-6">
+                        <div class="flex justify-between items-start">
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-lg mb-2">Marketing Analytics (UC Berkeley)</h4>
+                                <p class="text-gray-600 text-sm mb-3">加州大学伯克利分校</p>
+                                <p class="text-gray-700 mb-4">
+                                    学习如何使用数据驱动的方法进行营销决策，包括客户细分、预测分析等。
+                                </p>
+                                <div class="flex space-x-2 mb-4">
+                                    <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">免费课程</span>
+                                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">数据分析</span>
+                                </div>
+                            </div>
+                            <a href="https://www.edx.org/course/marketing-analytics" target="_blank" class="ml-4 bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700">
+                                <i class="fas fa-play mr-2"></i>开始学习
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Khan Academy -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-6 text-green-600 border-l-4 border-green-500 pl-4">
+                    <i class="fas fa-chalkboard-teacher mr-2"></i>Khan Academy 商业基础
+                </h3>
+                <div class="card-hover bg-white rounded-lg shadow-md p-6">
+                    <div class="flex justify-between items-start">
+                        <div class="flex-1">
+                            <h4 class="font-semibold text-lg mb-2">Entrepreneurship and Capital Markets</h4>
+                            <p class="text-gray-700 mb-4">
+                                涵盖商业基础概念、市场分析、财务规划等，为营销学习提供商业背景知识。
+                            </p>
+                            <div class="flex space-x-2 mb-4">
+                                <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">完全免费</span>
+                                <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">自定进度</span>
+                            </div>
+                        </div>
+                        <a href="https://www.khanacademy.org/economics-finance-domain/entrepreneurship2" target="_blank" class="ml-4 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700">
+                            <i class="fas fa-play mr-2"></i>开始学习
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded-lg">
+                <h3 class="font-semibold mb-3 text-yellow-800">
+                    <i class="fas fa-lightbulb mr-2"></i>学习建议
+                </h3>
+                <ul class="text-yellow-700 space-y-2 text-sm">
+                    <li>• <strong>系统性学习</strong>：按照基础理论 → 实战应用 → 案例分析的顺序</li>
+                    <li>• <strong>实践结合</strong>：观看视频的同时尝试分析身边的营销案例</li>
+                    <li>• <strong>笔记记录</strong>：记录关键概念和自己的思考</li>
+                    <li>• <strong>社区交流</strong>：加入相关学习群组，与同学交流讨论</li>
+                    <li>• <strong>定期复习</strong>：营销理论需要反复消化和应用</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- 名校课程 Tab -->
+        <div id="universities" class="tab-content">
+            <h2 class="text-3xl font-bold mb-8 gradient-text">常青藤商学院营销课程</h2>
+            
+            <!-- 哈佛商学院 -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-6 text-red-700 border-l-4 border-red-500 pl-4">
+                    <i class="fas fa-university mr-2"></i>Harvard Business School
+                </h3>
+                <div class="space-y-4">
+                    <div class="card-hover bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-start">
+                            <div class="bg-red-100 rounded-full p-3 mr-4">
+                                <i class="fas fa-graduation-cap text-red-600 text-xl"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-lg mb-2">Marketing Management (HBS MBA Core)</h4>
+                                <p class="text-gray-600 text-sm mb-3">授课教授：Sunil Gupta, Marco Bertini</p>
+                                <p class="text-gray-700 mb-4">
+                                    HBS MBA项目核心营销课程，涵盖战略营销、品牌管理、定价策略等核心领域。
+                                    采用案例教学法，深度分析Google、Apple、Amazon等企业的营销策略。
+                                </p>
+                                <div class="flex justify-between items-center">
+                                    <div class="flex space-x-2">
+                                        <span class="bg-red-100 text-red-800 text-xs px-2 py-1 rounded">案例教学</span>
+                                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">MBA核心</span>
+                                    </div>
+                                    <a href="https://www.hbs.edu/mba/academic-experience/curriculum/first-year/" target="_blank" class="text-red-600 hover:text-red-800 font-medium">
+                                        <i class="fas fa-external-link-alt mr-1"></i>课程详情
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-hover bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-start">
+                            <div class="bg-red-100 rounded-full p-3 mr-4">
+                                <i class="fas fa-chart-line text-red-600 text-xl"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-lg mb-2">Digital Marketing Strategy</h4>
+                                <p class="text-gray-600 text-sm mb-3">HBS Executive Education</p>
+                                <p class="text-gray-700 mb-4">
+                                    为高管设计的数字营销策略课程，重点关注数字化转型、平台经济和客户数据分析。
+                                </p>
+                                <div class="flex justify-between items-center">
+                                    <div class="flex space-x-2">
+                                        <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">高管教育</span>
+                                        <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">数字化</span>
+                                    </div>
+                                    <a href="https://www.exed.hbs.edu/digital-marketing-strategy/" target="_blank" class="text-red-600 hover:text-red-800 font-medium">
+                                        <i class="fas fa-external-link-alt mr-1"></i>课程详情
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 沃顿商学院 -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-6 text-blue-700 border-l-4 border-blue-500 pl-4">
+                    <i class="fas fa-university mr-2"></i>Wharton School (UPenn)
+                </h3>
+                <div class="space-y-4">
+                    <div class="card-hover bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 rounded-full p-3 mr-4">
+                                <i class="fas fa-users text-blue-600 text-xl"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-lg mb-2">Customer Analytics</h4>
+                                <p class="text-gray-600 text-sm mb-3">授课教授：Peter Fader</p>
+                                <p class="text-gray-700 mb-4">
+                                    世界知名的客户分析课程，由Customer Analytics领域权威Peter Fader教授主讲。
+                                    深入讲解CLV模型、客户细分、预测分析等核心概念。
+                                </p>
+                                <div class="flex justify-between items-center">
+                                    <div class="flex space-x-2">
+                                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">数据驱动</span>
+                                        <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">权威教授</span>
+                                        <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">CLV模型</span>
+                                    </div>
+                                    <a href="https://www.coursera.org/learn/wharton-customer-analytics" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium">
+                                        <i class="fas fa-external-link-alt mr-1"></i>Coursera版本
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-hover bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-start">
+                            <div class="bg-blue-100 rounded-full p-3 mr-4">
+                                <i class="fas fa-bullseye text-blue-600 text-xl"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-lg mb-2">Introduction to Marketing</h4>
+                                <p class="text-gray-600 text-sm mb-3">授课教授：Barbara Kahn</p>
+                                <p class="text-gray-700 mb-4">
+                                    沃顿商学院营销入门经典课程，涵盖品牌定位、客户价值、营销组合等基础理论。
+                                </p>
+                                <div class="flex justify-between items-center">
+                                    <div class="flex space-x-2">
+                                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">入门必修</span>
+                                        <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded">基础理论</span>
+                                    </div>
+                                    <a href="https://www.coursera.org/learn/wharton-marketing" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium">
+                                        <i class="fas fa-external-link-alt mr-1"></i>免费旁听
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 斯坦福商学院 -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-6 text-green-700 border-l-4 border-green-500 pl-4">
+                    <i class="fas fa-university mr-2"></i>Stanford Graduate School of Business
+                </h3>
+                <div class="space-y-4">
+                    <div class="card-hover bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-start">
+                            <div class="bg-green-100 rounded-full p-3 mr-4">
+                                <i class="fas fa-lightbulb text-green-600 text-xl"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-lg mb-2">Marketing Management</h4>
+                                <p class="text-gray-600 text-sm mb-3">Stanford MBA Core Course</p>
+                                <p class="text-gray-700 mb-4">
+                                    斯坦福MBA核心营销课程，强调创新思维和硅谷科技企业营销实践。
+                                    特别关注平台经济、网络效应和数字化营销策略。
+                                </p>
+                                <div class="flex justify-between items-center">
+                                    <div class="flex space-x-2">
+                                        <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">创新导向</span>
+                                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">科技企业</span>
+                                    </div>
+                                    <a href="https://www.gsb.stanford.edu/programs/mba/curriculum/courses" target="_blank" class="text-green-600 hover:text-green-800 font-medium">
+                                        <i class="fas fa-external-link-alt mr-1"></i>课程体系
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MIT斯隆商学院 -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-6 text-purple-700 border-l-4 border-purple-500 pl-4">
+                    <i class="fas fa-university mr-2"></i>MIT Sloan School of Management
+                </h3>
+                <div class="space-y-4">
+                    <div class="card-hover bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-start">
+                            <div class="bg-purple-100 rounded-full p-3 mr-4">
+                                <i class="fas fa-cogs text-purple-600 text-xl"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-lg mb-2">Marketing Engineering</h4>
+                                <p class="text-gray-600 text-sm mb-3">授课教授：Glen Urban</p>
+                                <p class="text-gray-700 mb-4">
+                                    将工程思维应用于营销管理，强调数据驱动的营销决策和技术创新的营销应用。
+                                    MIT独有的技术导向营销课程。
+                                </p>
+                                <div class="flex justify-between items-center">
+                                    <div class="flex space-x-2">
+                                        <span class="bg-purple-100 text-purple-800 text-xs px-2 py-1 rounded">技术导向</span>
+                                        <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">数据驱动</span>
+                                    </div>
+                                    <a href="https://mitsloan.mit.edu/faculty/directory/glen-l-urban" target="_blank" class="text-purple-600 hover:text-purple-800 font-medium">
+                                        <i class="fas fa-external-link-alt mr-1"></i>教授主页
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 哥伦比亚商学院 -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-6 text-indigo-700 border-l-4 border-indigo-500 pl-4">
+                    <i class="fas fa-university mr-2"></i>Columbia Business School
+                </h3>
+                <div class="space-y-4">
+                    <div class="card-hover bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-start">
+                            <div class="bg-indigo-100 rounded-full p-3 mr-4">
+                                <i class="fas fa-brain text-indigo-600 text-xl"></i>
+                            </div>
+                            <div class="flex-1">
+                                <h4 class="font-semibold text-lg mb-2">Consumer Behavior</h4>
+                                <p class="text-gray-600 text-sm mb-3">Columbia MBA Course</p>
+                                <p class="text-gray-700 mb-4">
+                                    深入研究消费者心理学和决策行为，结合行为经济学理论分析消费者选择过程。
+                                </p>
+                                <div class="flex justify-between items-center">
+                                    <div class="flex space-x-2">
+                                        <span class="bg-indigo-100 text-indigo-800 text-xs px-2 py-1 rounded">行为科学</span>
+                                        <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded">心理学</span>
+                                    </div>
+                                    <a href="https://www8.gsb.columbia.edu/courses/mba/" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-medium">
+                                        <i class="fas fa-external-link-alt mr-1"></i>课程目录
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-blue-50 to-purple-50 border border-blue-200 p-6 rounded-lg">
+                <h3 class="font-semibold mb-4 text-blue-800">
+                    <i class="fas fa-graduation-cap mr-2"></i>如何利用名校资源进行自学
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6 text-sm">
+                    <div>
+                        <h4 class="font-medium mb-2 text-blue-700">免费资源获取</h4>
+                        <ul class="space-y-1 text-blue-600">
+                            <li>• 教授个人网站上的课程笔记</li>
+                            <li>• 学校公开的课程大纲(Syllabus)</li>
+                            <li>• YouTube上的公开讲座</li>
+                            <li>• Coursera/edX的旁听模式</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-medium mb-2 text-purple-700">学习策略建议</h4>
+                        <ul class="space-y-1 text-purple-600">
+                            <li>• 按照课程大纲制定学习计划</li>
+                            <li>• 寻找相关的案例研究材料</li>
+                            <li>• 加入相关的学习社群</li>
+                            <li>• 实践课程中的理论框架</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 实用工具 Tab -->
+        <div id="tools" class="tab-content">
+            <h2 class="text-3xl font-bold mb-8 gradient-text">数字营销实用工具</h2>
+            
+            <!-- 分析工具 -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-6 text-blue-700 border-l-4 border-blue-500 pl-4">
+                    <i class="fas fa-chart-bar mr-2"></i>数据分析工具
+                </h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card-hover bg-white rounded-lg shadow-md p-6">
+                        <div class="text-center mb-4">
+                            <div class="bg-blue-100 rounded-full p-4 inline-block mb-3">
+                                <i class="fas fa-search text-2xl text-blue-600"></i>
+                            </div>
+                            <h4 class="font-semibold text-lg">Google Analytics</h4>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">
+                            免费的网站流量分析工具，提供详细的用户行为数据和转化分析。
+                        </p>
+                        <div class="mb-4">
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>学习难度</span>
+                                <span class="text-green-600">中等</span>
+                            </div>
+                            <div class="bg-gray-200 rounded-full h-2">
+                                <div class="bg-green-500 h-2 rounded-full" style="width: 60%"></div>
+                            </div>
+                        </div>
+                        <a href="https://analytics.google.com/" target="_blank" class="block w-full bg-blue-600 text-white text-center py-2 rounded hover:bg-blue-700">
+                            开始使用
+                        </a>
+                    </div>
+
+                    <div class="card-hover bg-white rounded-lg shadow-md p-6">
+                        <div class="text-center mb-4">
+                            <div class="bg-orange-100 rounded-full p-4 inline-block mb-3">
+                                <i class="fas fa-eye text-2xl text-orange-600"></i>
+                            </div>
+                            <h4 class="font-semibold text-lg">Hotjar</h4>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">
+                            用户行为分析工具，提供热力图、录屏回放和用户调研功能。
+                        </p>
+                        <div class="mb-4">
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>学习难度</span>
+                                <span class="text-yellow-600">简单</span>
+                            </div>
+                            <div class="bg-gray-200 rounded-full h-2">
+                                <div class="bg-yellow-500 h-2 rounded-full" style="width: 30%"></div>
+                            </div>
+                        </div>
+                        <a href="https://www.hotjar.com/" target="_blank" class="block w-full bg-orange-600 text-white text-center py-2 rounded hover:bg-orange-700">
+                            开始使用
+                        </a>
+                    </div>
+
+                    <div class="card-hover bg-white rounded-lg shadow-md p-6">
+                        <div class="text-center mb-4">
+                            <div class="bg-purple-100 rounded-full p-4 inline-block mb-3">
+                                <i class="fas fa-chart-pie text-2xl text-purple-600"></i>
+                            </div>
+                            <h4 class="font-semibold text-lg">Mixpanel</h4>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">
+                            专业的产品分析工具，专注于用户行为事件追踪和漏斗分析。
+                        </p>
+                        <div class="mb-4">
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>学习难度</span>
+                                <span class="text-red-600">困难</span>
+                            </div>
+                            <div class="bg-gray-200 rounded-full h-2">
+                                <div class="bg-red-500 h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <a href="https://mixpanel.com/" target="_blank" class="block w-full bg-purple-600 text-white text-center py-2 rounded hover:bg-purple-700">
+                            开始使用
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 营销自动化 -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-6 text-green-700 border-l-4 border-green-500 pl-4">
+                    <i class="fas fa-robot mr-2"></i>营销自动化工具
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="card-hover bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-start mb-4">
+                            <div class="bg-orange-100 rounded-full p-3 mr-4">
+                                <i class="fas fa-hubspot text-orange-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg">HubSpot</h4>
+                                <p class="text-gray-600 text-sm">一体化营销、销售和客服平台</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 text-sm mb-4">
+                            提供免费版本，包含CRM、邮件营销、落地页制作等功能。非常适合中小企业开始数字营销。
+                        </p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">免费版可用</span>
+                            <span class="text-sm text-gray-500">⭐ 4.5/5</span>
+                        </div>
+                        <a href="https://www.hubspot.com/" target="_blank" class="block w-full bg-orange-600 text-white text-center py-2 rounded hover:bg-orange-700">
+                            免费试用
+                        </a>
+                    </div>
+
+                    <div class="card-hover bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-start mb-4">
+                            <div class="bg-blue-100 rounded-full p-3 mr-4">
+                                <i class="fas fa-envelope text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg">Mailchimp</h4>
+                                <p class="text-gray-600 text-sm">专业的邮件营销平台</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 text-sm mb-4">
+                            用户友好的邮件营销工具，支持自动化邮件序列、A/B测试和详细的分析报告。
+                        </p>
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">免费版可用</span>
+                            <span class="text-sm text-gray-500">⭐ 4.2/5</span>
+                        </div>
+                        <a href="https://mailchimp.com/" target="_blank" class="block w-full bg-blue-600 text-white text-center py-2 rounded hover:bg-blue-700">
+                            免费试用
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 社交媒体管理 -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-6 text-purple-700 border-l-4 border-purple-500 pl-4">
+                    <i class="fas fa-share-alt mr-2"></i>社交媒体管理
+                </h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="card-hover bg-white rounded-lg shadow-md p-6">
+                        <div class="text-center mb-4">
+                            <div class="bg-yellow-100 rounded-full p-4 inline-block mb-3">
+                                <i class="fas fa-calendar-alt text-2xl text-yellow-600"></i>
+                            </div>
+                            <h4 class="font-semibold text-lg">Buffer</h4>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">
+                            简单易用的社交媒体发布和调度工具，支持多平台统一管理。
+                        </p>
+                        <a href="https://buffer.com/" target="_blank" class="block w-full bg-yellow-600 text-white text-center py-2 rounded hover:bg-yellow-700">
+                            免费试用
+                        </a>
+                    </div>
+
+                    <div class="card-hover bg-white rounded-lg shadow-md p-6">
+                        <div class="text-center mb-4">
+                            <div class="bg-indigo-100 rounded-full p-4 inline-block mb-3">
+                                <i class="fas fa-tasks text-2xl text-indigo-600"></i>
+                            </div>
+                            <h4 class="font-semibold text-lg">Hootsuite</h4>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">
+                            专业的社交媒体管理平台，适合大型团队和企业使用。
+                        </p>
+                        <a href="https://hootsuite.com/" target="_blank" class="block w-full bg-indigo-600 text-white text-center py-2 rounded hover:bg-indigo-700">
+                            免费试用
+                        </a>
+                    </div>
+
+                    <div class="card-hover bg-white rounded-lg shadow-md p-6">
+                        <div class="text-center mb-4">
+                            <div class="bg-pink-100 rounded-full p-4 inline-block mb-3">
+                                <i class="fas fa-palette text-2xl text-pink-600"></i>
+                            </div>
+                            <h4 class="font-semibold text-lg">Canva</h4>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4">
+                            在线设计工具，轻松创建社交媒体图片、海报和营销素材。
+                        </p>
+                        <a href="https://www.canva.com/" target="_blank" class="block w-full bg-pink-600 text-white text-center py-2 rounded hover:bg-pink-700">
+                            免费使用
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SEO工具 -->
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-6 text-red-700 border-l-4 border-red-500 pl-4">
+                    <i class="fas fa-search-plus mr-2"></i>SEO优化工具
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="card-hover bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-start mb-4">
+                            <div class="bg-red-100 rounded-full p-3 mr-4">
+                                <i class="fas fa-search text-red-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg">Google Search Console</h4>
+                                <p class="text-gray-600 text-sm">Google官方SEO工具</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 text-sm mb-4">
+                            免费监控网站在Google搜索中的表现，包括关键词排名、点击率和技术问题。
+                        </p>
+                        <div class="mb-4">
+                            <span class="bg-green-100 text-green-800 text-xs px-3 py-1 rounded-full">完全免费</span>
+                        </div>
+                        <a href="https://search.google.com/search-console/" target="_blank" class="block w-full bg-red-600 text-white text-center py-2 rounded hover:bg-red-700">
+                            开始使用
+                        </a>
+                    </div>
+
+                    <div class="card-hover bg-white rounded-lg shadow-md p-6">
+                        <div class="flex items-start mb-4">
+                            <div class="bg-green-100 rounded-full p-3 mr-4">
+                                <i class="fas fa-key text-green-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg">Ubersuggest</h4>
+                                <p class="text-gray-600 text-sm">Neil Patel的免费SEO工具</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-700 text-sm mb-4">
+                            关键词研究、竞争对手分析和内容建议，免费版本功能已经很强大。
+                        </p>
+                        <div class="mb-4">
+                            <span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">限制免费</span>
+                        </div>
+                        <a href="https://neilpatel.com/ubersuggest/" target="_blank" class="block w-full bg-green-600 text-white text-center py-2 rounded hover:bg-green-700">
+                            开始使用
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 p-6 rounded-lg">
+                <h3 class="font-semibold mb-4 text-green-800">
+                    <i class="fas fa-lightbulb mr-2"></i>工具选择建议
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6 text-sm">
+                    <div>
+                        <h4 class="font-medium mb-2 text-green-700">初学者推荐</h4>
+                        <ul class="space-y-1 text-green-600">
+                            <li>• Google Analytics (免费)</li>
+                            <li>• HubSpot CRM (免费版)</li>
+                            <li>• Canva (设计工具)</li>
+                            <li>• Google Search Console (SEO)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-medium mb-2 text-blue-700">进阶用户推荐</h4>
+                        <ul class="space-y-1 text-blue-600">
+                            <li>• Mixpanel (高级分析)</li>
+                            <li>• HubSpot Professional</li>
+                            <li>• Hootsuite (社交媒体)</li>
+                            <li>• SEMrush (SEO专业版)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <h3 class="text-lg font-semibold mb-4">持续学习，不断进步</h3>
+                <p class="text-gray-400 mb-4">
+                    数字营销是一个快速发展的领域，保持学习热情，跟上行业趋势是成功的关键。
+                </p>
+                <div class="flex justify-center space-x-6 text-sm">
+                    <div class="flex items-center">
+                        <i class="fas fa-book mr-2"></i>
+                        <span>理论与实践并重</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-users mr-2"></i>
+                        <span>建立专业网络</span>
+                    </div>
+                    <div class="flex items-center">
+                        <i class="fas fa-chart-line mr-2"></i>
+                        <span>数据驱动决策</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showTab(tabId) {
+            // Hide all tab contents with fade out effect
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+                content.style.opacity = '0';
+            });
+            
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Show selected tab content with fade in effect
+            const selectedTab = document.getElementById(tabId);
+            setTimeout(() => {
+                selectedTab.classList.add('active');
+                selectedTab.style.opacity = '1';
+            }, 150);
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+
+        // Initialize page with animations
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add fade-in class to main content
+            document.querySelector('main').classList.add('fade-in');
+            
+            // Add smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Add loading animation for external links
+            document.querySelectorAll('a[target="_blank"]').forEach(link => {
+                const originalHTML = link.innerHTML;
+                link.addEventListener('click', function() {
+                    this.innerHTML = '<i class="fas fa-spinner fa-spin mr-1"></i>正在跳转...';
+                    setTimeout(() => {
+                        this.innerHTML = originalHTML;
+                    }, 3000);
+                });
+            });
+            
+            // Add intersection observer for scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'slideInUp 0.6s ease-out forwards';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all card elements
+            document.querySelectorAll('.card-hover').forEach(card => {
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>
