@@ -40,7 +40,9 @@
         .gradient-text {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
+            color: transparent;
         }
         .timeline-item {
             opacity: 0;
@@ -64,6 +66,15 @@
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
+        }
+        /* 支持用户偏好的减少动画设置 */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
         }
         .hover-scale:hover {
             transform: scale(1.05);
@@ -127,23 +138,23 @@
     </header>
 
     <!-- Navigation Tabs -->
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
+    <nav class="bg-white shadow-sm sticky top-0 z-50" role="tablist">
         <div class="container mx-auto px-4">
             <div class="flex justify-center space-x-8">
-                <button class="tab-btn px-6 py-4 font-medium border-b-2 border-transparent hover:border-indigo-500 active" onclick="showTab('evolution')">
-                    <i class="fas fa-timeline mr-2"></i>演进历程
+                <button class="tab-btn px-6 py-4 font-medium border-b-2 border-transparent hover:border-indigo-500 active" role="tab" aria-controls="evolution" aria-selected="true" onclick="showTab('evolution', this)">
+                    <i class="fas fa-timeline mr-2" aria-hidden="true"></i>演进历程
                 </button>
-                <button class="tab-btn px-6 py-4 font-medium border-b-2 border-transparent hover:border-indigo-500" onclick="showTab('cases')">
-                    <i class="fas fa-lightbulb mr-2"></i>经典案例
+                <button class="tab-btn px-6 py-4 font-medium border-b-2 border-transparent hover:border-indigo-500" role="tab" aria-controls="cases" aria-selected="false" onclick="showTab('cases', this)">
+                    <i class="fas fa-lightbulb mr-2" aria-hidden="true"></i>经典案例
                 </button>
-                <button class="tab-btn px-6 py-4 font-medium border-b-2 border-transparent hover:border-indigo-500" onclick="showTab('videos')">
-                    <i class="fas fa-play-circle mr-2"></i>视频资源
+                <button class="tab-btn px-6 py-4 font-medium border-b-2 border-transparent hover:border-indigo-500" role="tab" aria-controls="videos" aria-selected="false" onclick="showTab('videos', this)">
+                    <i class="fas fa-play-circle mr-2" aria-hidden="true"></i>视频资源
                 </button>
-                <button class="tab-btn px-6 py-4 font-medium border-b-2 border-transparent hover:border-indigo-500" onclick="showTab('analysis')">
-                    <i class="fas fa-chart-line mr-2"></i>深度分析
+                <button class="tab-btn px-6 py-4 font-medium border-b-2 border-transparent hover:border-indigo-500" role="tab" aria-controls="analysis" aria-selected="false" onclick="showTab('analysis', this)">
+                    <i class="fas fa-chart-line mr-2" aria-hidden="true"></i>深度分析
                 </button>
-                <button class="tab-btn px-6 py-4 font-medium border-b-2 border-transparent hover:border-indigo-500" onclick="showTab('insights')">
-                    <i class="fas fa-brain mr-2"></i>启示总结
+                <button class="tab-btn px-6 py-4 font-medium border-b-2 border-transparent hover:border-indigo-500" role="tab" aria-controls="insights" aria-selected="false" onclick="showTab('insights', this)">
+                    <i class="fas fa-brain mr-2" aria-hidden="true"></i>启示总结
                 </button>
             </div>
         </div>
@@ -151,7 +162,7 @@
 
     <main class="container mx-auto px-4 py-12">
         <!-- 演进历程 Tab -->
-        <div id="evolution" class="tab-content active">
+        <div id="evolution" class="tab-content active" role="tabpanel" aria-labelledby="tab-evolution">
             <h2 class="text-3xl font-bold mb-8 gradient-text">营销管理观念演进历程</h2>
             
             <!-- 时间轴概览 -->
@@ -1786,6 +1797,263 @@
                 </div>
             </div>
         </div>
+
+        <!-- 深度分析 Tab -->
+        <div id="analysis" class="tab-content" role="tabpanel" aria-labelledby="tab-analysis">
+            <h2 class="text-3xl font-bold mb-8 gradient-text">深度分析</h2>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 数据分析 -->
+                <div class="card-hover bg-white rounded-lg shadow-md p-8">
+                    <div class="mb-6">
+                        <div class="bg-blue-100 rounded-full p-4 inline-flex mb-4">
+                            <i class="fas fa-chart-bar text-2xl text-blue-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">营销效果量化分析</h3>
+                        <p class="text-gray-600 mb-6">基于可口可乐历史数据的营销ROI分析</p>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="bg-blue-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-blue-700 mb-2">品牌价值增长</h4>
+                            <p class="text-sm text-gray-700">从1886年到2024年，可口可乐品牌价值增长超过1000倍，年均复合增长率约5.2%</p>
+                        </div>
+                        <div class="bg-green-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-green-700 mb-2">市场渗透率</h4>
+                            <p class="text-sm text-gray-700">全球200+国家销售，日消费量达19亿份，市场渗透率达92%</p>
+                        </div>
+                        <div class="bg-purple-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-purple-700 mb-2">数字化转型效果</h4>
+                            <p class="text-sm text-gray-700">2020-2024数字营销投入占比从15%提升至45%，ROI提升300%</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 战略分析 -->
+                <div class="card-hover bg-white rounded-lg shadow-md p-8">
+                    <div class="mb-6">
+                        <div class="bg-red-100 rounded-full p-4 inline-flex mb-4">
+                            <i class="fas fa-chess text-2xl text-red-600"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-4">营销战略演进分析</h3>
+                        <p class="text-gray-600 mb-6">各阶段战略决策的成功因素解析</p>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <div class="border-l-4 border-red-500 pl-4">
+                            <h4 class="font-semibold text-red-700 mb-2">成功关键因素</h4>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>• 持续的品牌投资和形象塑造</li>
+                                <li>• 快速适应消费者需求变化</li>
+                                <li>• 全球化与本土化的平衡策略</li>
+                                <li>• 技术创新与传统价值的结合</li>
+                            </ul>
+                        </div>
+                        <div class="border-l-4 border-orange-500 pl-4">
+                            <h4 class="font-semibold text-orange-700 mb-2">危机应对能力</h4>
+                            <ul class="text-sm text-gray-700 space-y-1">
+                                <li>• 1985年新可乐危机的快速调整</li>
+                                <li>• 健康趋势下的产品线扩展</li>
+                                <li>• COVID-19期间的营销策略转型</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 竞争分析 -->
+            <div class="mt-8 card-hover bg-white rounded-lg shadow-md p-8">
+                <h3 class="text-2xl font-bold mb-6">竞争格局分析</h3>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <div class="bg-red-500 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <span class="font-bold">42%</span>
+                        </div>
+                        <h4 class="font-semibold mb-2">可口可乐</h4>
+                        <p class="text-sm text-gray-600">全球碳酸饮料市场份额</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-blue-500 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <span class="font-bold">28%</span>
+                        </div>
+                        <h4 class="font-semibold mb-2">百事可乐</h4>
+                        <p class="text-sm text-gray-600">主要竞争对手市场份额</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-green-500 text-white rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                            <span class="font-bold">30%</span>
+                        </div>
+                        <h4 class="font-semibold mb-2">其他品牌</h4>
+                        <p class="text-sm text-gray-600">区域性和新兴品牌</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 启示总结 Tab -->
+        <div id="insights" class="tab-content" role="tabpanel" aria-labelledby="tab-insights">
+            <h2 class="text-3xl font-bold mb-8 gradient-text">启示总结</h2>
+            
+            <!-- 核心启示 -->
+            <div class="card-hover bg-white rounded-lg shadow-md p-8 mb-8">
+                <h3 class="text-2xl font-bold mb-6">营销管理核心启示</h3>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-semibold text-indigo-700 mb-4">
+                            <i class="fas fa-lightbulb mr-2"></i>战略层面启示
+                        </h4>
+                        <div class="space-y-3">
+                            <div class="flex items-start">
+                                <div class="bg-indigo-100 rounded-full p-2 mr-3 mt-1">
+                                    <i class="fas fa-check text-indigo-600 text-sm"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold">以消费者为中心</h5>
+                                    <p class="text-sm text-gray-600">从生产导向转向消费者导向是营销成功的根本</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-indigo-100 rounded-full p-2 mr-3 mt-1">
+                                    <i class="fas fa-check text-indigo-600 text-sm"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold">持续品牌投资</h5>
+                                    <p class="text-sm text-gray-600">长期一致的品牌建设比短期销售更重要</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-indigo-100 rounded-full p-2 mr-3 mt-1">
+                                    <i class="fas fa-check text-indigo-600 text-sm"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold">适应性变革</h5>
+                                    <p class="text-sm text-gray-600">快速适应市场变化和消费者需求演变</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold text-green-700 mb-4">
+                            <i class="fas fa-cogs mr-2"></i>执行层面启示
+                        </h4>
+                        <div class="space-y-3">
+                            <div class="flex items-start">
+                                <div class="bg-green-100 rounded-full p-2 mr-3 mt-1">
+                                    <i class="fas fa-check text-green-600 text-sm"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold">数据驱动决策</h5>
+                                    <p class="text-sm text-gray-600">基于市场数据和消费者洞察制定营销策略</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-green-100 rounded-full p-2 mr-3 mt-1">
+                                    <i class="fas fa-check text-green-600 text-sm"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold">全渠道整合</h5>
+                                    <p class="text-sm text-gray-600">线上线下渠道协同，提供一致的品牌体验</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="bg-green-100 rounded-full p-2 mr-3 mt-1">
+                                    <i class="fas fa-check text-green-600 text-sm"></i>
+                                </div>
+                                <div>
+                                    <h5 class="font-semibold">社会责任</h5>
+                                    <p class="text-sm text-gray-600">将企业社会责任融入营销战略，实现可持续发展</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 未来趋势 -->
+            <div class="card-hover bg-white rounded-lg shadow-md p-8 mb-8">
+                <h3 class="text-2xl font-bold mb-6">未来营销趋势预测</h3>
+                
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="text-center">
+                        <div class="bg-purple-100 rounded-full p-6 inline-flex mb-4">
+                            <i class="fas fa-robot text-3xl text-purple-600"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">AI驱动营销</h4>
+                        <p class="text-sm text-gray-600">人工智能将revolutionize个性化营销和客户体验</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-blue-100 rounded-full p-6 inline-flex mb-4">
+                            <i class="fas fa-leaf text-3xl text-blue-600"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">可持续营销</h4>
+                        <p class="text-sm text-gray-600">环保和社会责任将成为品牌差异化关键因素</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-orange-100 rounded-full p-6 inline-flex mb-4">
+                            <i class="fas fa-vr-cardboard text-3xl text-orange-600"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">沉浸式体验</h4>
+                        <p class="text-sm text-gray-600">AR/VR技术将创造全新的品牌体验方式</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 实践建议 -->
+            <div class="bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-200 p-8 rounded-lg">
+                <h3 class="font-semibold mb-6 text-indigo-800">
+                    <i class="fas fa-compass mr-2"></i>给营销管理者的实践建议
+                </h3>
+                
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="font-medium mb-4 text-indigo-700">短期行动计划</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-right text-indigo-500 mr-2 mt-1"></i>
+                                <span>建立完善的客户数据收集和分析体系</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-right text-indigo-500 mr-2 mt-1"></i>
+                                <span>投资数字化营销工具和平台</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-right text-indigo-500 mr-2 mt-1"></i>
+                                <span>培训团队掌握新兴营销技术</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-right text-indigo-500 mr-2 mt-1"></i>
+                                <span>建立跨部门协作机制</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-medium mb-4 text-purple-700">长期战略规划</h4>
+                        <ul class="space-y-2 text-sm">
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-right text-purple-500 mr-2 mt-1"></i>
+                                <span>制定以客户价值为核心的营销战略</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-right text-purple-500 mr-2 mt-1"></i>
+                                <span>构建可持续发展的品牌价值体系</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-right text-purple-500 mr-2 mt-1"></i>
+                                <span>建立创新文化和实验机制</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-arrow-right text-purple-500 mr-2 mt-1"></i>
+                                <span>投资新技术和新渠道的研发</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </main>
 
     <!-- Footer -->
@@ -1815,7 +2083,14 @@
     </footer>
 
     <script>
-        function showTab(tabId) {
+        function showTab(tabId, buttonElement) {
+            // 防御性检查
+            const selectedTab = document.getElementById(tabId);
+            if (!selectedTab) {
+                console.warn('Tab content not found:', tabId);
+                return;
+            }
+            
             // Hide all tab contents with fade out effect
             const contents = document.querySelectorAll('.tab-content');
             contents.forEach(content => {
@@ -1823,19 +2098,24 @@
                 content.style.opacity = '0';
             });
             
-            // Remove active class from all buttons
+            // Remove active class and aria-selected from all buttons
             const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(btn => btn.classList.remove('active'));
+            buttons.forEach(btn => {
+                btn.classList.remove('active');
+                btn.setAttribute('aria-selected', 'false');
+            });
             
             // Show selected tab content with fade in effect
-            const selectedTab = document.getElementById(tabId);
             setTimeout(() => {
                 selectedTab.classList.add('active');
                 selectedTab.style.opacity = '1';
             }, 150);
             
-            // Add active class to clicked button
-            event.target.classList.add('active');
+            // Add active class and aria-selected to clicked button
+            if (buttonElement) {
+                buttonElement.classList.add('active');
+                buttonElement.setAttribute('aria-selected', 'true');
+            }
         }
 
         // Initialize page with animations
@@ -1874,6 +2154,8 @@
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.style.animation = 'slideInUp 0.6s ease-out forwards';
+                        // 性能优化：动画触发后停止观察
+                        observer.unobserve(entry.target);
                     }
                 });
             }, observerOptions);
@@ -1881,6 +2163,13 @@
             // Observe all card elements
             document.querySelectorAll('.card-hover').forEach(card => {
                 observer.observe(card);
+            });
+            
+            // 为所有外部链接添加安全属性
+            document.querySelectorAll('a[target="_blank"]').forEach(link => {
+                if (!link.hasAttribute('rel')) {
+                    link.setAttribute('rel', 'noopener noreferrer');
+                }
             });
         });
     </script>
