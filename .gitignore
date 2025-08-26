@@ -42,3 +42,4 @@ pids
 .claude/
 dashboard-architecture-analysis.md
 output/
+.vercel
